@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Payal ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+  font-family:"Courier New", monospace;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+section{
+  min-height:100vh;
+  padding:40px 22px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.content{
+  position:relative;
+  z-index:2;
+  max-width:420px;
+}
+h1{font-size:22px;margin-bottom:16px;color:#ffb6c1;}
+p{font-size:15px;line-height:1.7;margin-bottom:18px;}
+.scroll{font-size:13px;opacity:0.8;}
+
+.photo{
+  width:100%;
+  border-radius:20px;
+  margin:18px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,0.45);
+}
+.gallery{
+  display:flex;
+  gap:12px;
+  margin:18px 0;
+}
+.gallery img{
+  width:50%;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  animation:float 7s linear infinite;
+  opacity:0.7;
+}
+@keyframes float{
+  to{transform:translateY(-120vh);}
+}
+
+/* Buttons */
+.buttons{
+  position:relative;
+  height:120px;
+  margin-top:20px;
+}
+button{
+  padding:12px 22px;
+  border:none;
+  border-radius:25px;
+  font-size:15px;
+  position:absolute;
+}
+#yes{
+  background:#00ffb3;
+  color:#000;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+}
+#no{
+  background:#ff4d4d;
+  color:#fff;
+  left:20%;
+  top:0;
+}
+
+/* Celebration */
+.petal,.spark{position:fixed;pointer-events:none;z-index:5;}
+.petal{
+  font-size:18px;
+  animation:fall 6s linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+.spark{
+  width:6px;height:6px;background:gold;border-radius:50%;
+  animation:blast 1s ease-out forwards;
+}
+@keyframes blast{
+  to{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}
+}
+
+/* FINAL INFINITE SCROLL GALLERY */
+.final{
+  min-height:100vh;
+  padding:30px 0;
+  text-align:center;
+}
+.slider{
+  overflow:hidden;
+  width:100%;
+  margin:30px 0;
+}
+.track{
+  display:flex;
+  width:max-content;
+  animation:scroll 25s linear infinite;
+}
+.track img{
+  height:220px;
+  margin:0 10px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+@keyframes scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section style="background-image:url('img1.jpg')">
+<div class="overlay"></div>
+<div class="content">
+  <h1 id="type"></h1>
+  <p>
+    Yeh koi random cheez nahi hai.<br>
+    Na hi timepass.<br><br>
+    Maine yeh isliye banaya hai,<br>
+    kyunki tum mere liye sach mein important ho ❤️
+  </p>
+  <div class="scroll">⬇ Dheere scroll karna</div>
+</div>
+</section>
+
+<!-- PAGE 2 -->
+<section style="background-image:url('img2.jpg')">
+<div class="overlay"></div>
+<div class="content">
+  <h1>Shona ❤️</h1>
+  <img src="img2.jpg" class="photo">
+  <p>
+    Pata nahi kab hua,<br>
+    par baaton ke beech,<br>
+    tum meri comfort ban gayi 🌸
+  </p>
+  <p>
+    Jaan, tumhare saath sab kuch thoda better lagta hai 💕
+  </p>
+  <div class="scroll">⬇ Aage dekho</div>
+</div>
+</section>
+
+<!-- PAGE 3 -->
+<section style="background-image:url('img3.jpg')">
+<div class="overlay"></div>
+<div class="content">
+  <h1>Why You 🌙</h1>
+  <div class="gallery">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+  </div>
+  <p>
+    Mujhe perfect nahi chahiye.<br>
+    Mujhe bas <b>tum</b> chahiye ❤️
+  </p>
+  <div class="scroll">⬇ Last page</div>
+</div>
+</section>
+
+<!-- PAGE 4 -->
+<section style="background-image:url('img5.jpg')">
+<div class="overlay"></div>
+<div class="content">
+  <h1>Shona ❤️</h1>
+  <p>
+    Main tumhe choose karta hoon.<br>
+    Aaj bhi. Kal bhi.<br>
+    Hamesha 🌹
+  </p>
+  <p><b>Will you be my Valentine?</b></p>
+  <div class="buttons">
+    <button id="yes">Yes ❤️</button>
+    <button id="no">No 🙃</button>
+  </div>
+</div>
+</section>
+
+<script>
+/* Typewriter */
+const text="Dear Payal ❤️";
+let i=0;
+(function type(){
+  if(i<text.length){
+    document.getElementById("type").innerHTML+=text[i++];
+    setTimeout(type,120);
+  }
+})();
+
+/* Hearts */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+},500);
+
+/* NO button escape */
+const no=document.getElementById("no");
+function move(){
+  const p=no.parentElement;
+  no.style.left=Math.random()*(p.clientWidth-no.offsetWidth)+"px";
+  no.style.top=Math.random()*(p.clientHeight-no.offsetHeight)+"px";
+}
+no.addEventListener("touchstart",move);
+no.addEventListener("mouseenter",move);
+
+/* Celebration */
+function petals(){
+  for(let i=0;i<30;i++){
+    const p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="🌸";
+    p.style.left=Math.random()*100+"vw";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),7000);
+  }
+}
+function fireworks(){
+  for(let i=0;i<25;i++){
+    const s=document.createElement("div");
+    s.className="spark";
+    s.style.left="50vw";
+    s.style.top="50vh";
+    s.style.setProperty("--x",(Math.random()*300-150)+"px");
+    s.style.setProperty("--y",(Math.random()*300-150)+"px");
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+  }
+}
+
+/* YES */
+document.getElementById("yes").onclick=()=>{
+  petals(); fireworks();
+  setTimeout(()=>{
+    document.body.innerHTML=`
+    <section class="final">
+      <h1>❤️ Hum ❤️</h1>
+      <p>
+        Shona, yeh sirf shuruaat hai.<br>
+        Aur mujhe khushi hai ki yeh tum ho ❤️
+      </p>
+
+      <div class="slider">
+        <div class="track">
+          <img src="img5.jpg">
+          <img src="img6.jpg">
+          <img src="img7.jpg">
+          <img src="img8.jpg">
+          <img src="img9.jpg">
+          <!-- duplicate for infinite loop -->
+          <img src="img5.jpg">
+          <img src="img6.jpg">
+          <img src="img7.jpg">
+          <img src="img8.jpg">
+          <img src="img9.jpg">
+        </div>
+      </div>
+
+      <p>Bahut saari yaadein abhi baaki hain… 💞</p>
+    </section>`;
+  },1200);
+};
+</script>
+
+</body>
+</html>
